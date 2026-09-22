@@ -43,6 +43,5 @@ int main(){
     cin >> name;
 
     cout<<"Hii,"<<name<<" How are you!";
-    cout<<"Om Nmao shivaye"<<endl'Shiv Ji sada sahaye';
-
+    cout<<"Om Nmao shivaye"<<endl<<'Shiv Ji sada sahaye';
 }
