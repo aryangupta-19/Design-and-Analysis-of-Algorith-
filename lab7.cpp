@@ -1,3 +1,46 @@
+// absent -> Knapsack Algorithm _ jobScheduling 
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+bool comp(pair<int, int> a, pair<int, int> b) {
+    return (double)a.second / a.first > (double)b.second / b.first;
+}
+
+double WeightCalculate(vector<pair<int, int>> arr, int W) {
+    sort(arr.begin(), arr.end(), comp);
+    double totalVal = 0.0;
+
+    for (int i = 0; i < arr.size(); i++) {
+        int weight = arr[i].first;
+        int value = arr[i].second;
+
+        if (weight <= W) {
+            totalVal += value;
+            W -= weight;
+        }else {
+            totalVal += ((double)value / weight) * W;
+            break;
+        }
+    }
+    return totalVal;
+}
+
+int main() {
+    vector<pair<int, int>> arr = {
+        {10, 60},
+        {20, 100},
+        {30, 120}
+    };
+
+    int W = 50;
+    double maxValue = WeightCalculate(arr, W);
+    cout << "Maximum value = " << maxValue << endl;
+    return 0;
+}
+
 // 1) Implement prims algo using greedy approach 
 // (If the smallest edge using priority queue) with min_heap'
 
